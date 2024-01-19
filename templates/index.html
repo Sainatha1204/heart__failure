@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-image: url("{{ url_for('static', filename='heart.jpeg') }}");
+            background-size: cover;
+            color: white;
+            text-align: center;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            margin: 20px auto; 
+            max-width: 800px;
+            border-radius: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 15px;
+            font-size: 20px; 
+        }
+
+        input, select {
+            width: calc(45% - 20px);
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+    <title>Heart Failure Prediction</title>
+</head>
+<body>
+    <h1>Heart Failure Prediction</h1>
+    <form action="/predict" method="post">
+        <div>
+            <!-- First five inputs -->
+            <label for="name">Name:</label>
+            <input type="text" name="name" required>
+
+            <label for="sex">Sex:</label>
+            <select name="sex" required>
+                <option value="0">Female</option>
+                <option value="1">Male</option>
+            </select>
+            
+            <label for="age">Age:</label>
+            <input type="text" name="age" required>
+            
+            <label for="creatinine_phosphokinase">Creatinine Phosphokinase:</label>
+            <input type="text" name="creatinine_phosphokinase" required>
+            
+            <label for="ejection_fraction">Ejection Fraction:</label>
+            <input type="text" name="ejection_fraction" required>
+            
+            <label for="serum_creatinine">Serum Creatinine:</label>
+            <input type="text" name="serum_creatinine" required>
+        </div>
+        <div>
+            <!-- Second five inputs -->
+            <label for="serum_sodium">Serum Sodium:</label>
+            <input type="text" name="serum_sodium" required>
+            
+            <label for="time">Time:</label>
+            <input type="text" name="time" required>
+            
+            <label for="anaemia">Anaemia:</label>
+            <select name="anaemia" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+            
+            <label for="diabetes">Diabetes:</label>
+            <select name="diabetes" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+            
+            <label for="high_blood_pressure">High Blood Pressure:</label>
+            <select name="high_blood_pressure" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+
+            <label for="smoking">Smoking:</label>
+            <select name="smoking" required>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </div>
+        
+        <button type="submit">Predict</button>
+    </form>
+</body>
+</html>

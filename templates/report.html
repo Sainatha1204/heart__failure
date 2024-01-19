@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Failure Prediction Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .report {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .patient-info {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .patient-info p {
+            margin: 5px 0;
+        }
+
+        .normal-range {
+            font-style: italic;
+            font-size: 80%;
+        }
+
+        .line {
+            border-top: 2px solid #333; 
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .prediction {
+            margin-top: 20px;
+            font-weight: bold;
+            text-align: center;
+            color: #4CAF50;
+        }
+
+        .input-group p {
+            margin: 10px 0;
+        }
+
+        a {
+            color: #333; 
+        }
+
+        img {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px; 
+            height: 100px; 
+        }
+    </style>
+</head>
+<body>
+    <h1>Heart Failure Prediction Report</h1>
+    <div class="report">
+        <div class="patient-info">
+            <img src="{{ url_for('static', filename='heart.jpeg') }}" alt="Heart Image">
+            <p><strong>Name:</strong> {{ report.name }}</p>
+            <p><strong>Age:</strong> {{ report.age }} years</p>
+            <p><strong>Sex:</strong> {{ report.sex }}</p>
+            <div class="line"></div>
+            <div class="input-group">
+                <p><strong>Creatinine Phosphokinase:</strong> {{ report.creatinine_phosphokinase }} U/L </p>
+                <p><strong>Ejection Fraction       :</strong> {{ report.ejection_fraction }}% </p>
+                <p><strong>Serum Creatinine        :</strong> {{ report.serum_creatinine }} mg/dL </p>
+                <p><strong>Serum Sodium            :</strong> {{ report.serum_sodium }} mEq/L</p>
+            </div>
+            <p><strong>Anaemia:</strong> {{ report.anaemia }}</p>
+            <p><strong>Diabetes:</strong> {{ report.diabetes }}</p>
+            <p><strong>High Blood Pressure:</strong> {{ report.high_blood_pressure }}</p>
+            <p><strong>Smoking:</strong> {{ report.smoking }}</p>
+        </div>
+
+        <div class="prediction">
+            <p><strong>Prediction:</strong> {{ report.prediction }}</p>
+        </div>
+    </div>
+</body>
+</html>
